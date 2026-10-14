@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="A reproducible 3D laboratory for evolved robot design, A* navigation, and autonomous multi-robot combat.">
+  <title>Robot Arena · testFAILS3</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="stylesheet" href="/static/robot-arena.css">
+  <script type="module" src="/static/robot-arena.js"></script>
+</head>
+<body class="lab-body">
+<a class="skip" href="#lab-main">Skip to laboratory controls</a>
+<header class="topbar lab-nav">
+  <a class="brand" href="/">test<span>FAILS</span><sup>3</sup></a>
+  <nav aria-label="Primary"><a href="/">Dashboard</a><a href="/method">Method</a><a href="#evidence">Evidence</a></nav>
+</header>
+<main id="lab-main" class="lab-shell">
+  <section class="lab-intro">
+    <div><p class="eyebrow">LIVE 3D AUTONOMOUS SYSTEMS TEST</p><h1>Evolutionary robot laboratory.</h1><p class="lede">A seeded optimizer creates one compact challenger. Six autonomous agents then plan around obstacles with A*, select targets, evade, and fire simulated energy pulses. Nothing here controls physical hardware.</p></div>
+    <div class="lab-boundary"><strong>What is actually computed</strong><p>Robot parameters, fitness trials, navigation paths, line of sight, movement, hits, damage, and the winner are computed in your browser. Reusing a seed reproduces the initial design and arena.</p></div>
+  </section>
+  <section class="arena-console" aria-label="Robot arena experiment">
+    <div class="viewport-wrap">
+      <canvas id="arena-canvas" aria-label="3D view of six autonomous robots navigating and fighting in a sandbox"></canvas>
+      <div class="viewport-status"><span id="render-state" class="status-pill">Initializing WebGL</span><span>drag to orbit · wheel to zoom</span></div>
+      <div class="score-strip" id="score-strip" aria-label="Robot health"></div>
+    </div>
+    <aside class="control-panel">
+      <div class="control-heading"><p class="eyebrow">EXPERIMENT CONTROL</p><h2 id="match-state">Preparing run</h2></div>
+      <label for="seed">Reproducible seed</label>
+      <div class="seed-row"><input id="seed" inputmode="numeric" value="20261013" aria-describedby="seed-help"><button id="generate" type="button">Evolve + reset</button></div>
+      <small id="seed-help">Same seed, same initial genome, bots, and obstacles.</small>
+      <div class="button-row"><button id="toggle" class="primary-control" type="button" disabled>Start</button><button id="reset" type="button" disabled>Reset match</button><button id="camera" type="button">Camera: orbit</button></div>
+      <dl class="metrics" aria-live="polite">
+        <div><dt>Simulation</dt><dd id="metric-time">0.0 s</dd></div><div><dt>Robots alive</dt><dd id="metric-alive">6 / 6</dd></div>
+        <div><dt>A* replans</dt><dd id="metric-replans">0</dd></div><div><dt>Shots / hits</dt><dd id="metric-shots">0 / 0</dd></div>
+        <div><dt>Distance</dt><dd id="metric-distance">0.0 m</dd></div><div><dt>Seed</dt><dd id="metric-seed">20261013</dd></div>
+      </dl>
+      <div class="genome-card"><div><p class="eyebrow">EVOLVED CHALLENGER</p><strong id="genome-name">Computing…</strong></div><dl id="genome-values"></dl><p id="evolution-proof">Running deterministic fitness trials.</p></div>
+    </aside>
+  </section>
+  <section id="evidence" class="evidence-grid">
+    <article><p class="eyebrow">DECISION TRACE</p><h2>Events from this run</h2><ol id="event-log" class="event-log" aria-live="polite"></ol></article>
+    <article><p class="eyebrow">MEASUREMENT BOUNDARY</p><h2>Inspect, don’t imagine.</h2><ul class="fact-list"><li><strong>Designer:</strong> seeded evolutionary search, not an LLM claim.</li><li><strong>Navigator:</strong> grid-based A* with obstacle occupancy and replanning.</li><li><strong>Controller:</strong> utility rules choose pursue, evade, or fire from current state.</li><li><strong>Combat:</strong> fictional energy pulses with line-of-sight collision and health accounting.</li><li><strong>Renderer:</strong> vendored Three.js 0.180.0; simulation state remains independent of frame rate.</li></ul><button id="export" type="button">Download run evidence (.json)</button></article>
+  </section>
+</main>
+<footer><strong>testFAILS3</strong><p>Autonomous behavior with inspectable evidence.</p><a href="/">Back to evaluation</a></footer>
+</body>
+</html>

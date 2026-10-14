@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="testFAILS3: autonomous, evidence-grounded evaluation of AI linguistic systems with official Arena context.">
+  <title>testFAILS3 · Autonomous AI evaluation</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to results</a>
+<header class="topbar">
+  <a class="brand" href="/">test<span>FAILS</span><sup>3</sup></a>
+  <nav aria-label="Primary"><a href="/robot-arena">Robot arena</a><a href="#evaluation">Evaluation</a><a href="#arena">Arena context</a><a href="/method">Method</a><a href="https://arena.ai/" target="_blank" rel="noopener">Open Arena ↗</a></nav>
+</header>
+<main id="main">
+  <section class="hero">
+    <div>
+      <p class="eyebrow">CONTINUOUS · AUTONOMOUS · AUDITABLE</p>
+      <h1>AI evaluation that<br>shows its work.</h1>
+      <p class="lede">A third-generation testFAILS implementation that runs objective cases through configured model APIs, synchronizes official Arena leaderboards, records failures, and publishes provenance without pretending unlike measurements are interchangeable.</p>
+      <div class="hero-actions"><a class="button primary" href="#evaluation">Inspect the latest run</a><a class="button" href="/robot-arena">Run the 3D robot lab</a><a class="button" href="/api/status">Machine-readable status</a></div>
+    </div>
+    <aside class="run-status" aria-label="Autonomy status">
+      <span class="live-dot"></span><strong>Autonomous pipeline</strong>
+      <dl>
+        <div><dt>Benchmark</dt><dd>{{ suite.dimensionCount }} dimensions · {{ suite.caseCount }} probes</dd></div>
+        <div><dt>Suite hash</dt><dd><code>{{ suite.sha256[:12] }}</code></dd></div>
+        <div><dt>Arena sync</dt><dd>{{ arena.retrievedAt or "Unavailable" }}</dd></div>
+        <div><dt>Provider run</dt><dd>{% if run and run.suite.sha256 == suite.sha256 %}{{ run.createdAt }}{% elif run %}Historical run · current suite pending{% else %}Awaiting configured API credentials{% endif %}</dd></div>
+      </dl>
+    </aside>
+  </section>
+
+  <section class="principles" aria-label="System boundaries">
+    <article><span>01</span><h2>Runs itself</h2><p>A scheduled workflow refreshes public rankings and evaluates every configured model without manual scoring.</p></article>
+    <article><span>02</span><h2>Fails visibly</h2><p>Network errors, invalid JSON, skipped modalities, and assertion failures remain in the evidence record.</p></article>
+    <article><span>03</span><h2>Separates evidence</h2><p>Arena preference data is displayed beside testFAILS3 results, never folded into the autonomous score.</p></article>
+  </section>
+
+  <section id="evaluation" class="section">
+    <div class="section-head"><div><p class="eyebrow">LATEST AUTONOMOUS EVALUATION</p><h2>Measured by executable assertions.</h2></div>{% if run and run.suite.sha256 == suite.sha256 %}<code>{{ run.runId }}</code>{% endif %}</div>
+    {% if run and run.models and run.suite.sha256 == suite.sha256 %}
+      <div class="model-grid">
+      {% for model in run.models %}
+        <article class="model-card">
+          <div class="score-ring" style="--score:{{ (model.score or 0) * 100 }}"><strong>{% if model.score is not none %}{{ "%.1f"|format(model.score*100) }}{% else %}—{% endif %}</strong><span>{% if model.score is not none %}/ 100{% else %}no score{% endif %}</span></div>
+          <div><p class="eyebrow">{{ model.provider }}</p><h3>{{ model.model }}</h3><p>{{ model.completedCases }}/{{ model.totalCases }} cases completed · {{ "%.0f"|format(model.coverage*100) }}% coverage</p><p>{% if model.medianLatencyMs is not none %}Median response {{ "%.0f"|format(model.medianLatencyMs) }} ms{% else %}Provider failure recorded{% endif %}</p></div>
+        </article>
+      {% endfor %}
+      </div>
+      <div class="component-table-wrap"><table><caption>Per-component evidence from the latest run</caption><thead><tr><th>Component</th>{% for model in run.models %}<th>{{ model.model }}</th>{% endfor %}</tr></thead><tbody>
+      {% for case in suite.cases %}<tr><th scope="row">{{ case.component }}<small>{{ case.id }} · {{ case.title }}</small></th>{% for model in run.models %}{% set matches = model.results|selectattr("caseId", "equalto", case.id)|list %}{% set result = matches[0] if matches else none %}<td class="{{ 'pass' if result and result.score == 1 else 'partial' if result and result.score is not none else 'error' }}">{% if result and result.score is not none %}{{ "%.0f"|format(result.score*100) }}%{% elif result %}{{ result.status|replace('_', ' ') }}{% else %}not run for this suite{% endif %}</td>{% endfor %}</tr>{% endfor %}
+      </tbody></table></div>
+      <details><summary>Run provenance and limitations</summary><div class="prose"><p>Created {{ run.createdAt }} · SHA-256 <code>{{ run.sha256 }}</code> · Suite <code>{{ run.suite.sha256 }}</code>.</p><p>Scores report deterministic assertion success on this versioned suite. They are not human preference, AGI, safety certification, or proof of general intelligence. Coverage must be compared alongside score.</p></div></details>
+    {% elif run %}
+      <div class="empty-state"><strong>The stored run belongs to an earlier suite.</strong><p>Its evidence remains preserved, but it is not displayed as a result for suite {{ suite.version }}. Run the current {{ suite.caseCount }}-probe manifest before making a comparison.</p><code>stored {{ run.suite.sha256[:12] }} · current {{ suite.sha256[:12] }}</code></div>
+    {% else %}
+      <div class="empty-state"><strong>No provider evaluation has been fabricated.</strong><p>The autonomous runner is ready, but a real run appears only after at least one provider API credential is configured. Arena synchronization remains independently active.</p><code>python -m testfails.cli evaluate --env-file .env</code></div>
+    {% endif %}
+  </section>
+
+  <section id="arena" class="section arena-section">
+    <div class="section-head"><div><p class="eyebrow">OFFICIAL EXTERNAL CONTEXT</p><h2>Arena leaderboards, synchronized automatically.</h2></div><p class="source-note">Retrieved {{ arena.retrievedAt }} · <a href="{{ arena.source }}" target="_blank" rel="noopener">CC BY 4.0 dataset ↗</a></p></div>
+    <div class="tabs" role="tablist" aria-label="Arena leaderboard">
+      {% for name in arena.boards %}<button role="tab" aria-selected="{{ 'true' if loop.first else 'false' }}" aria-controls="board-{{ name }}" id="tab-{{ name }}" data-board="{{ name }}">{{ name|upper }}</button>{% endfor %}
+    </div>
+    {% for name, board in arena.boards.items() %}
+    <div class="board" id="board-{{ name }}" role="tabpanel" aria-labelledby="tab-{{ name }}" {% if not loop.first %}hidden{% endif %}>
+      <p>Published {{ board.publishDate }} · {{ board.config }} · top {{ board.rows|length }} synchronized rows</p>
+      <ol>{% for row in board.rows[:10] %}<li><span class="rank">{{ row.rank }}</span><strong>{{ row.model_name }}</strong><span>{{ row.organization }}</span><span>{% if row.rating is defined %}{{ "%.1f"|format(row.rating) }}{% else %}{{ "%.3f"|format(row.score) }}{% endif %}</span></li>{% endfor %}</ol>
+    </div>
+    {% endfor %}
+    {% if arena.errors %}<div class="warning">Some Arena boards could not be refreshed. The available boards and exact errors remain in <a href="/api/arena">the API record</a>.</div>{% endif %}
+    <p class="boundary">Arena ranks are human-preference or IPS measurements published by Arena. testFAILS3 scores are executable case assertions. They answer different questions and are intentionally not combined.</p>
+  </section>
+</main>
+<footer><strong>testFAILS3</strong><p>Built from the testFAILS research line · autonomous evidence, explicit boundaries.</p><a href="https://github.com/ykumar2020/testfails3">Source ↗</a></footer>
+</body>
+</html>

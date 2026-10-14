@@ -1,0 +1,15 @@
+[project]
+name = "testfails3"
+version = "0.2.0"
+description = "Autonomous, provenance-preserving evaluation for AI linguistic systems"
+requires-python = ">=3.11"
+dependencies = ["Flask==3.1.2", "pydantic==2.11.10"]
+
+[project.optional-dependencies]
+semantic = ["spacy>=3.8,<4"]
+
+[tool.setuptools.package-data]
+testfails = ["suite_manifest.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

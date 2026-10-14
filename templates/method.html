@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Method · testFAILS3</title><link rel="stylesheet" href="/static/style.css"></head>
+<body>
+<a class="skip" href="#main">Skip to method</a>
+<header class="topbar"><a class="brand" href="/">test<span>FAILS</span><sup>3</sup></a><nav><a href="/">Dashboard</a><a href="/robot-arena">Robot arena</a><a href="/api/status">API</a><a href="https://arena.ai/" target="_blank" rel="noopener">Arena ↗</a></nav></header>
+<main id="main" class="method-page">
+<p class="eyebrow">VERSIONED METHODOLOGY</p><h1>Autonomy without hidden judgment.</h1>
+<p class="lede">testFAILS3 converts the prior frameworks' manual bottleneck into a scheduled, reproducible pipeline. It does not erase the need for human studies; it makes machine-checkable claims run continuously and leaves human-only claims unclaimed.</p>
+<section class="method-flow" aria-label="Evaluation sequence">
+<article><span>1</span><h2>Discover</h2><p>Configured providers identify an explicit model. No model name is silently substituted.</p></article>
+<article><span>2</span><h2>Execute</h2><p>{{ suite.caseCount }} versioned probes across {{ suite.dimensionCount }} dimensions run independently. Text and image inputs use provider-supported APIs.</p></article>
+<article><span>3</span><h2>Assert</h2><p>JSON structure, exact values, constraints, refusals, tool order, and accessibility markers are checked deterministically.</p></article>
+<article><span>4</span><h2>Record</h2><p>Prompt and response hashes, latency, tokens, assertion outcomes, errors, model identity, and suite hash are preserved.</p></article>
+<article><span>5</span><h2>Contextualize</h2><p>Official Arena datasets are synchronized as a separate external measurement with dates and uncertainty fields intact.</p></article>
+<article><span>6</span><h2>Publish</h2><p>A scheduled GitHub workflow commits changed evidence; deployment follows the repository's production branch.</p></article>
+</section>
+<section class="section"><div class="section-head"><div><p class="eyebrow">THE 14 DIMENSIONS</p><h2>Inherited concepts, executable proxies.</h2></div><code>{{ suite.version }} · {{ suite.sha256[:12] }}</code></div>
+<div class="case-grid">{% for dimension in suite.dimensions %}<article><span>{{ "%02d"|format(loop.index) }}</span><h3>{{ dimension.component }}</h3><p>{{ dimension.title }}</p><small>{{ dimension.probeCount }} version-pinned probes</small></article>{% endfor %}</div></section>
+<section class="section prose"><h2>What the score means</h2><p>Each completed probe receives the fraction of its assertions that passed. The macro score is the mean across completed probes; the micro rate is the number of passing assertions divided by all evaluated assertions. Population standard deviation accompanies the macro score. Coverage is reported separately. Latency and token summaries use the standard mean, median, inclusive quartiles, and population standard deviation.</p><p>A schema, transport, authentication, rate-limit, timeout, or billing failure is categorized and never converted into a false capability score. Comparisons are valid only for the same suite version and comparable coverage.</p><h2>What it does not mean</h2><p>The conversational probes are repeatable proxies, not a Turing test. Safety probes are bounded regressions, not certification. The simulated robot probes never control hardware. Accessibility checks inspect response content and measured API behavior; they are not a conformance audit. Arena data is not an input to the testFAILS3 score.</p><h2>Reproducibility</h2><p>The public API exposes the exact static suite manifest, frozen contextual date, fixed seeds, prompt and fixture hashes, latest run, Arena retrieval timestamp, model identifiers, assertion outcomes, and diagnostic failures. Secrets are read only from the runtime environment and are never written into evidence artifacts.</p></section>
+</main><footer><strong>testFAILS3</strong><p>Versioned and reproducible by design.</p><a href="/">Dashboard</a></footer>
+</body></html>
