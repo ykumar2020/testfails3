@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "source": "https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset",
   "api": "https://datasets-server.huggingface.co/rows",
-  "retrievedAt": "2026-10-29T16:08:28Z",
+  "retrievedAt": "2026-10-30T15:56:39Z",
   "license": "CC BY 4.0",
   "boards": {
     "text": {
@@ -432,6 +432,32 @@
           "leaderboard_publish_date": "2026-10-28"
         },
         {
+          "model_name": "GPT-6.1 Terra (Max)",
+          "organization": "openai",
+          "license": "Proprietary",
+          "score": 0.10574985212598499,
+          "score_ci_lower": 0.08615062605575963,
+          "score_ci_upper": 0.12534907819621036,
+          "observation_count": 1691221.0,
+          "session_count": 8977.0,
+          "rank": 8,
+          "category": "overall",
+          "leaderboard_publish_date": "2026-10-28"
+        },
+        {
+          "model_name": "Muse Wonder Full (Max)",
+          "organization": "meta",
+          "license": "Proprietary",
+          "score": 0.10089643946312506,
+          "score_ci_lower": 0.09145785722513157,
+          "score_ci_upper": 0.11033502170111854,
+          "observation_count": 3922185.0,
+          "session_count": 26753.0,
+          "rank": 9,
+          "category": "overall",
+          "leaderboard_publish_date": "2026-10-28"
+        },
+        {
           "model_name": "Claude Fable 5 (High)",
           "organization": "anthropic",
           "license": "Proprietary",
@@ -440,7 +466,7 @@
           "score_ci_upper": 0.09131732148626681,
           "observation_count": 3344866.0,
           "session_count": 50866.0,
-          "rank": 8,
+          "rank": 10,
           "category": "overall",
           "leaderboard_publish_date": "2026-10-28"
         },
@@ -453,7 +479,7 @@
           "score_ci_upper": 0.09586803375137119,
           "observation_count": 2598143.0,
           "session_count": 12107.0,
-          "rank": 9,
+          "rank": 11,
           "category": "overall",
           "leaderboard_publish_date": "2026-10-28"
         },
@@ -466,7 +492,20 @@
           "score_ci_upper": 0.08784212092177787,
           "observation_count": 4435133.0,
           "session_count": 31777.0,
-          "rank": 10,
+          "rank": 12,
+          "category": "overall",
+          "leaderboard_publish_date": "2026-10-28"
+        },
+        {
+          "model_name": "Kimi K3.1 Pro (Max)",
+          "organization": "moonshot",
+          "license": "Proprietary",
+          "score": 0.05955600574608372,
+          "score_ci_lower": 0.04367243354093753,
+          "score_ci_upper": 0.07543957795122991,
+          "observation_count": 3350156.0,
+          "session_count": 14300.0,
+          "rank": 13,
           "category": "overall",
           "leaderboard_publish_date": "2026-10-28"
         },
@@ -479,7 +518,7 @@
           "score_ci_upper": 0.05821762317549571,
           "observation_count": 6126242.0,
           "session_count": 45156.0,
-          "rank": 11,
+          "rank": 14,
           "category": "overall",
           "leaderboard_publish_date": "2026-10-28"
         },
@@ -492,7 +531,7 @@
           "score_ci_upper": 0.045858914494615745,
           "observation_count": 1808022.0,
           "session_count": 12530.0,
-          "rank": 12,
+          "rank": 15,
           "category": "overall",
           "leaderboard_publish_date": "2026-10-28"
         },
@@ -505,7 +544,7 @@
           "score_ci_upper": 0.04112943218473521,
           "observation_count": 4886376.0,
           "session_count": 41456.0,
-          "rank": 13,
+          "rank": 16,
           "category": "overall",
           "leaderboard_publish_date": "2026-10-28"
         },
@@ -518,7 +557,20 @@
           "score_ci_upper": 0.036402141780421136,
           "observation_count": 4802357.0,
           "session_count": 46354.0,
-          "rank": 14,
+          "rank": 17,
+          "category": "overall",
+          "leaderboard_publish_date": "2026-10-28"
+        },
+        {
+          "model_name": "DeepSeek-V4.1-Flash-20261017 (Max)",
+          "organization": "deepseek",
+          "license": "MIT",
+          "score": 0.026748579776335085,
+          "score_ci_lower": 0.020321105127655035,
+          "score_ci_upper": 0.03317605442501513,
+          "observation_count": 13758007.0,
+          "session_count": 54255.0,
+          "rank": 18,
           "category": "overall",
           "leaderboard_publish_date": "2026-10-28"
         },
@@ -531,7 +583,7 @@
           "score_ci_upper": 0.0346679918626349,
           "observation_count": 7867776.0,
           "session_count": 52730.0,
-          "rank": 15,
+          "rank": 19,
           "category": "overall",
           "leaderboard_publish_date": "2026-10-28"
         },
@@ -544,7 +596,7 @@
           "score_ci_upper": 0.03409046439930553,
           "observation_count": 8403345.0,
           "session_count": 80518.0,
-          "rank": 16,
+          "rank": 20,
           "category": "overall",
           "leaderboard_publish_date": "2026-10-28"
         },
@@ -557,7 +609,7 @@
           "score_ci_upper": 0.0385049046002395,
           "observation_count": 3328169.0,
           "session_count": 18559.0,
-          "rank": 17,
+          "rank": 21,
           "category": "overall",
           "leaderboard_publish_date": "2026-10-28"
         },
@@ -570,7 +622,7 @@
           "score_ci_upper": 0.026363864349183582,
           "observation_count": 34619592.0,
           "session_count": 217544.0,
-          "rank": 18,
+          "rank": 22,
           "category": "overall",
           "leaderboard_publish_date": "2026-10-28"
         },
@@ -583,7 +635,7 @@
           "score_ci_upper": 0.0224744117025342,
           "observation_count": 42504300.0,
           "session_count": 266436.0,
-          "rank": 19,
+          "rank": 23,
           "category": "overall",
           "leaderboard_publish_date": "2026-10-28"
         },
@@ -596,7 +648,7 @@
           "score_ci_upper": 0.02482688708113514,
           "observation_count": 3567086.0,
           "session_count": 29343.0,
-          "rank": 20,
+          "rank": 24,
           "category": "overall",
           "leaderboard_publish_date": "2026-10-28"
         },
@@ -609,58 +661,6 @@
           "score_ci_upper": 0.020207177827115848,
           "observation_count": 8700096.0,
           "session_count": 98542.0,
-          "rank": 21,
-          "category": "overall",
-          "leaderboard_publish_date": "2026-10-28"
-        },
-        {
-          "model_name": "Hy4 preview",
-          "organization": "tencent",
-          "license": "Apache 2.0",
-          "score": 0.01223884066007757,
-          "score_ci_lower": 0.005494043657310407,
-          "score_ci_upper": 0.01898363766284473,
-          "observation_count": 10555916.0,
-          "session_count": 98590.0,
-          "rank": 22,
-          "category": "overall",
-          "leaderboard_publish_date": "2026-10-28"
-        },
-        {
-          "model_name": "Kimi K3 (Max)",
-          "organization": "moonshot",
-          "license": "Kimi K3 license",
-          "score": 0.010787136728542578,
-          "score_ci_lower": 0.0051033435081316815,
-          "score_ci_upper": 0.016470929948953474,
-          "observation_count": 15590153.0,
-          "session_count": 160249.0,
-          "rank": 23,
-          "category": "overall",
-          "leaderboard_publish_date": "2026-10-28"
-        },
-        {
-          "model_name": "MiMo-V2.6-Flash",
-          "organization": "xiaomi",
-          "license": "MIT",
-          "score": 0.010018747709004657,
-          "score_ci_lower": -0.0014324658401875662,
-          "score_ci_upper": 0.02146996125819688,
-          "observation_count": 2995304.0,
-          "session_count": 26781.0,
-          "rank": 24,
-          "category": "overall",
-          "leaderboard_publish_date": "2026-10-28"
-        },
-        {
-          "model_name": "GLM-5.3 (Max)",
-          "organization": "zai",
-          "license": "MIT",
-          "score": 0.009119361444542019,
-          "score_ci_lower": 0.0013924646938139693,
-          "score_ci_upper": 0.016846258195270067,
-          "observation_count": 10997629.0,
-          "session_count": 96109.0,
           "rank": 25,
           "category": "overall",
           "leaderboard_publish_date": "2026-10-28"
@@ -1331,5 +1331,5 @@
     }
   },
   "errors": [],
-  "sha256": "0d65c9ca4ef0e27cdb41ab26226ac704f196c4c4878dea445fc45a3bb64def0c"
+  "sha256": "e959957144cb88bf960543798894d04ccc7f7362039dd77dbe41b05f6c43ca15"
 }
