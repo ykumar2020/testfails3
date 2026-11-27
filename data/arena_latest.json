@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "source": "https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset",
   "api": "https://datasets-server.huggingface.co/rows",
-  "retrievedAt": "2026-11-26T19:01:17Z",
+  "retrievedAt": "2026-11-27T19:00:00Z",
   "license": "CC BY 4.0",
   "boards": {
     "text": {
@@ -1381,5 +1381,5 @@
     }
   },
   "errors": [],
-  "sha256": "5ef748e8eb412bb1da65100a4b7a398b55e2b1970657a29466982fe26a8e6518"
+  "sha256": "6fd93df7f56d63815cde416c20930b446f8772a37a1f1a8de2f827856ad4563b"
 }
